@@ -8,4 +8,25 @@ class Image(models.Model):
   location_id = models.ForeignKey
   date_upload = models.DateTimeField(auto_now_add=True)
 
+  def save_image(self):
+    pass
+
+  def delete_image(self):
+    pass
+
+  def update_image(self):
+    pass
+
+  @classmethod
+  def get_image_by_is(cls, id):
+    pass
+
+  @classmethod
+  def search_image(cls, category):
+    pass
+
+  @classmethod
+  def filter_by_location(location):
+    pass
+
 
