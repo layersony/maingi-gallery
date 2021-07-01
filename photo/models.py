@@ -29,4 +29,17 @@ class Image(models.Model):
   def filter_by_location(location):
     pass
 
+  def __str__(self):
+    return self.image_name
 
+class Location(models.Model):
+  location = models.CharField(max_length=200)
+
+  def __str__(self):
+    return self.location
+
+class Category(models.Model):
+  category = models.CharField(max_length=200)
+
+  def __str__(self):
+    return self.category
