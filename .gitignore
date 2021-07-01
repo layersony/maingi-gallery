@@ -1,4 +1,6 @@
-envgallery/
+envgalleryy/
+.env
+
 
 *.log
 *.pot

@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Image(models.Model):
   image = models.ImageField(upload_to='photos')
   image_name =  models.CharField(max_length=200)
@@ -9,10 +8,10 @@ class Image(models.Model):
   date_upload = models.DateTimeField(auto_now_add=True)
 
   def save_image(self):
-    pass
+    self.save()
 
   def delete_image(self):
-    pass
+    self.delete()
 
   def update_image(self):
     pass
@@ -35,11 +34,17 @@ class Image(models.Model):
 class Location(models.Model):
   location = models.CharField(max_length=200)
 
+  def saveLocation(self):
+    self.save()
+
   def __str__(self):
     return self.location
 
 class Category(models.Model):
   category = models.CharField(max_length=200)
+
+  def saveCategory(self):
+    self.save()
 
   def __str__(self):
     return self.category
