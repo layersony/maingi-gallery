@@ -37,8 +37,12 @@ class Image(models.Model):
     cls.objects.filter(id = id).update(image = imagechange)
 
   @classmethod
-  def get_image_by_is(cls, id):
-    pass
+  def get_images_by_id(cls, id):
+    try:
+      image = cls.objects.get(id=id)
+      return image
+    except Image.DoesNotExist:
+      print('Image does not exist')
 
   @classmethod
   def search_image(cls, category):

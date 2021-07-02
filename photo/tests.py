@@ -29,6 +29,12 @@ class TestImage(TestCase):
     self.image.update_image(self.image.id, 'photos/test2.jpg')
     updated_image = Image.objects.get(id=self.image.id)
     self.assertEqual(updated_image.image, 'photos/test2.jpg')
+  
+  def test_getImagesById(self):
+    self.image.save_image()
+    imagefound = Image.get_images_by_id(self.image.id)
+    self.assertEqual(imagefound, self.image)
+    
 class TestLocation(TestCase):
   def setUp(self):
     self.location = Location(location='Nairobi')
