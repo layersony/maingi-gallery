@@ -3,7 +3,18 @@ from .models import Image, Category, Location
 
 class TestImage(TestCase):
   def setUp(self):
-    self.image = Image(image ='photos/test,jpg', image_name = 'test1', image_desc= 'this is a test1')
+    self.location = Location(location='Nairobi')
+    self.location.saveLocation()
+
+    self.category = Category(category='Food')
+    self.category.saveCategory()
+
+    self.image = Image(image ='photos/test.jpg', image_name = 'test1', image_desc= 'this is a test1', location_id=self.location, category_id=self.category)
+
+  def teardown(self):
+    Image.objects.all().delete()
+    Location.objects.all().delete()
+    Category.objects.all().delete()
 
   def test_instance(self):
     self.assertTrue(isinstance(self.image, Image))
