@@ -35,6 +35,13 @@ class TestImage(TestCase):
     imagefound = Image.get_images_by_id(self.image.id)
     self.assertEqual(imagefound, self.image)
     
+  def test_searchImage(self):
+    self.category2 = Category.objects.create(category='Food')
+    self.image2 = Image.objects.create(image ='photos/test3.jpg', image_name = 'test3', image_desc= 'this is a test3', location_id=self.location, category_id=self.category2)
+    searchTerm = 'Food'
+    self.image.save_image()
+    searchResult = Image.search_image(searchTerm)
+    self.assertEqual(searchResult.count(), 2)
 class TestLocation(TestCase):
   def setUp(self):
     self.location = Location(location='Nairobi')
