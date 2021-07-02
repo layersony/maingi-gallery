@@ -42,6 +42,15 @@ class TestImage(TestCase):
     self.image.save_image()
     searchResult = Image.search_image(searchTerm)
     self.assertEqual(searchResult.count(), 2)
+
+  def test_filterlocation(self):
+    self.image.save_image()
+    self.location2 = Location.objects.create(location='Kisumu')
+    self.image2 = Image.objects.create(image ='photos/test3.jpg', image_name = 'test3', image_desc= 'this is a test3', location_id=self.location2, category_id=self.category)
+    filterlocationterm = 'Kisumu'
+    searchResult = Image.filter_by_location(filterlocationterm)
+    self.assertEqual(searchResult.count(), 1)
+
 class TestLocation(TestCase):
   def setUp(self):
     self.location = Location(location='Nairobi')
