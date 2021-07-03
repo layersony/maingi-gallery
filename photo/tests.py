@@ -23,7 +23,7 @@ class TestImage(TestCase):
     self.image.save_image()
     images = Image.objects.all()
     self.assertTrue(len(images)>0)
-
+  
   def test_updateImage(self):
     self.image.save_image()
     self.image.update_image(self.image.id, 'photos/test2.jpg')
