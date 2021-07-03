@@ -30,6 +30,12 @@ class TestImage(TestCase):
     updated_image = Image.objects.get(id=self.image.id)
     self.assertEqual(updated_image.image, 'photos/test2.jpg')
   
+  def test_deleteImage(self):
+    self.image.save_image()
+    self.image2 = Image.objects.create(image ='photos/test3.jpg', image_name = 'test3', image_desc= 'this is a test3', location_id=self.location, category_id=self.category)
+    Image.delete_image(self.image.id)
+    self.assertTrue(len(Image.objects.all())==1)
+  
   def test_getImagesById(self):
     self.image.save_image()
     imagefound = Image.get_images_by_id(self.image.id)
