@@ -106,7 +106,7 @@ button:focus {
 ***************/
 .wrapper-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, 30rem);
+  grid-template-columns: repeat(auto-fit, minmax(25rem ,30rem));
   justify-content: center;
 }
 
@@ -118,7 +118,7 @@ button:focus {
 }
 
 .landingimg{
-  max-width: 400px;
+  /* max-width: 400px; */
   max-height: 300px;
   object-fit:cover;
   border-radius: 5px;
@@ -250,19 +250,37 @@ footer>.footer_info p{
 @media screen and (max-width:600px) {
   .photo{
     width: 370px;
-    margin-left: 39px;
+    max-width: none;
   }
   .modal {
     width: 400px;
   }
+  .modal.active {
+    top: 50%;
+    display: block;
+    height: 500px;
+  }
+  .brand-rand{
+    font-size: 35px;
+  }
+  .custnav{
+    min-height: 150px;
+  }
+  
 }
 
 @media screen and (max-width:350px) {
   .photo{
     width: 320px;
-    margin-left: 65px;
+    margin-left: 25px;
   }
   .modal {
     width: 340px;
+  }
+  .brand-rand{
+    font-size: 35px;
+  }
+  .custnav{
+    min-height: 150px;
   }
 }
