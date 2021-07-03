@@ -1,3 +1,61 @@
-<h1>
-  Working
-</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+<ul class='cate text-md-center'>
+  <span>Categories:</span>
+  {% for cate in all_category %}
+  <li>{{ cate.category }}</li>
+  {% endfor %}
+</ul>
+
+
+<div class="dropdown">
+  <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+    FILTER BY LOCATION
+  </button>
+  <div class="dropdown-menu">
+    {% for location in all_location %}
+      <a class="dropdown-item" style="font-family: 'Kodchasan', sans-serif;" href="/?location={{location.location}}">{{location.location}}</a>
+      <div class="dropdown-divider"></div>
+    {% endfor %}
+  </div>
+</div>
+
+<hr>
+
+<div class="landing">
+  <h1 class="text-center mt-5 mb-5">Photo Gallery</h1>
+</div>
+
+<div class="wrapper-grid justify-content-center align-items-center text-center">
+  {% for photo in all_photos %}
+    <div class="photo"  data-target="#modal{{photo.id}}">
+      <img src="{{ photo.image.url }}" alt="{{ photo.image_name }}" class='img-fluid landingimg'>
+      <div class="d-flex justify-content-center align-items-center">
+        <p class='text-center hanger'>{{photo.image_name}}</p>
+      </div>
+    </div>
+    <div class="modal" id="modal{{photo.id}}">
+      <div class="d-flex justify-content-between align-items-center p-1 toptitle">
+        <h2 class='text-center'>{{photo.image_name}}</h2>
+        <button class="btn close-modal">&times;</button>
+      </div>
+      <div class="body">
+        <img src="{{ photo.image.url }}" alt="{{ photo.image_name }}" class='img-fluid overlayimg'>
+        <div class="d-flex justify-content-around align-items-center mt-3">
+          <p>Location: {{ photo.location_id }}</p>
+          <p>Category: {{ photo.category_id }}</p>
+        </div>
+        <p>{{ photo.image_desc }}</p>
+        <div >
+          <input type="text" value='{{ photo.image.url }}' class="copylink" id="trial{{photo.id}}" style="display: none;">
+          <span class="btncopy" id="cpybtn{{ photo.id }}">Copy Image Link <i class="fad fa-copy text-white copyicon" style="font-size: 25px;"></i></span>
+        </div>
+      </div>
+    </div>
+    <div id="overlay"></div>
+  {% endfor %}
+</div>
+<hr>
+
+{% endblock %}
