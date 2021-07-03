@@ -22,7 +22,7 @@ def search_photo_category(request):
     return render(request, 'galltemp/search.html', {'searchresults': searchCategories, 'searchterm':search_term, 'all_category':all_category, 'all_location': all_location})
   else:
     return redirect('home')
-  
+
 def location(request):
   all_location = Location.objects.all()
   print(all_location)
