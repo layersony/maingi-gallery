@@ -1,0 +1,69 @@
+/**************
+****footer****
+***************/
+footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: #ffffff;
+  background-color: #3b3b3b;
+  position: absolute;
+  width: 100%;
+}
+footer h4{
+  color: #ffffff;
+}
+footer>.social{
+  background-color: transparent;
+}
+footer>.social ol{
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+footer>.social ol li {
+  padding: 5px;
+  font-size: 15px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+footer>.social ol li >.fab {
+  padding: 5px;
+  font-size: 25px;
+  text-decoration: none;
+  color: #ffffff;
+}
+footer>.social ol li>.fab:hover{
+  font-size: 35px;
+  color: #ffffff;
+  transition: ease-in 0.1s;
+}
+
+footer>.footer_info p{
+  font-size: 15px;
+}
+
+@media screen and (max-width:600px) {
+  .photo{
+    width: 370px;
+    margin-left: 39px;
+  }
+  .modal {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width:350px) {
+  .photo{
+    width: 320px;
+    margin-left: 65px;
+  }
+  .modal {
+    width: 340px;
+  }
+}
