@@ -29,7 +29,7 @@ class TestImage(TestCase):
     self.image.update_image(self.image.id, 'photos/test2.jpg')
     updated_image = Image.objects.get(id=self.image.id)
     self.assertEqual(updated_image.image, 'photos/test2.jpg')
-  
+
   def test_deleteImage(self):
     self.image.save_image()
     self.image2 = Image.objects.create(image ='photos/test3.jpg', image_name = 'test3', image_desc= 'this is a test3', location_id=self.location, category_id=self.category)
@@ -68,7 +68,7 @@ class TestLocation(TestCase):
     self.location.saveLocation()
     location = Location.objects.all()
     self.assertTrue(len(location)>0)
-
+  
   def test_deleteLocation(self):
     self.location.saveLocation()
     self.location2 = Location.objects.create(location='USA')
@@ -93,3 +93,17 @@ class TestCategory(TestCase):
     self.category.saveCategory()
     category = Category.objects.all()
     self.assertTrue(len(category)>0)
+
+  def test_deleteCategory(self):
+    self.category.saveCategory()
+    self.category2 = Category.objects.create(category='Travel')
+    Category.deleteCategory(self.category2.id)
+    self.assertTrue(len(Category.objects.all())==1)
+
+
+  def test_updateCategory(self):
+    update_term = 'Money'
+    self.category.saveCategory()
+    Category.updateCategory(self.category.id, update_term)  
+    updated_one = Category.objects.get(id=self.category.id)
+    self.assertEqual(updated_one.category, 'Money')
