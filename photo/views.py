@@ -23,3 +23,7 @@ def search_photo_category(request):
   else:
     return redirect('home')
   
+def location(request):
+  all_location = Location.objects.all()
+  print(all_location)
+  return render(request, 'galltemp/locatio.html')
