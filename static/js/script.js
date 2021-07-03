@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const textcopy = document.querySelectorAll('.copylink')
   const btncopy = document.querySelectorAll('.btncopy')
 
-
-
   btns.forEach((btn) => {
     btn.addEventListener("click", () => {
       document.querySelector(btn.dataset.target).classList.add("active");
@@ -32,12 +30,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   textcopy.forEach((btn, i) => {
     btncopy[i].addEventListener("click", ()=>{
-      var cptext = document.getElementById('trial'+(i+1))
+      p = btn.id.split("trial");
+      var cptext = document.getElementById('trial'+p[1])
       cptext.select()      
       cptext.setSelectionRange(0, 99999)
       document.execCommand('copy')
       alert("Copied link: " + cptext.value);
     })
   });
-
 })
