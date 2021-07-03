@@ -29,3 +29,15 @@ document.addEventListener('DOMContentLoaded', function () {
       overlay.classList.remove("active");
     }
   };
+
+  textcopy.forEach((btn, i) => {
+    btncopy[i].addEventListener("click", ()=>{
+      var cptext = document.getElementById('trial'+(i+1))
+      cptext.select()      
+      cptext.setSelectionRange(0, 99999)
+      document.execCommand('copy')
+      alert("Copied link: " + cptext.value);
+    })
+  });
+
+})
