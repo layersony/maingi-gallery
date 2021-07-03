@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark custnav">
+  <div class="container">
+    <a class="navbar-brand brand-rand" href="/">Maingi's Gallery</a>
+    <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav  ml-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active mr-4 ml-4" aria-current="page" href="/">Home</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<form class="d-flex d-flex flex-column justify-content-center align-items-center mt-5 mb-3" role="search" action='{% url "search_results" %}'>
+  <div class="searchform">
+    <div class="search">
+      <input class="form-control me-2 searchTerm" name="search" type="search" placeholder="Search Photos Category..." aria-label="Search">
+      <button type="submit" class="searchButton"><i class="fad fa-search"></i></button>
+    </div>
+  </div>
+</form>
