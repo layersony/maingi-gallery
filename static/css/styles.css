@@ -1,4 +1,39 @@
 /**************
+** Photo **
+***************/
+.wrapper-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 30rem);
+  justify-content: center;
+}
+
+.photo{
+  /* background-color: yellow; */
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.landingimg{
+  max-width: 400px;
+  max-height: 300px;
+  object-fit:cover;
+  border-radius: 5px;
+  border: 3px solid #fff;
+  box-shadow: 0px 7px 6px #000000;
+}
+
+.hanger{
+  background-color: white;
+  min-width: 80px;
+  padding: 10px;
+  margin-top: -18px;
+  border-radius: 20px;
+  border-bottom: 2px solid;
+  box-shadow: 0px 2px 4px #000000;
+
+}
+/**************
 ****modal****
 ***************/
 .overlayimg{
