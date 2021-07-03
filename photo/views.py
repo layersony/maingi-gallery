@@ -12,4 +12,14 @@ def index(request):
 
   return render(request, 'galltemp/index.html', {'all_photos':all_photos, 'all_category':all_category, 'all_location':all_location})
   
+def search_photo_category(request):
+  if 'search' in request.GET and request.GET['search']:
+    search_term = request.GET.get('search')
+    searchCategories = Image.search_image(search_term)
+    all_category = Category.objects.all()
+    all_location = Location.objects.all()
+
+    return render(request, 'galltemp/search.html', {'searchresults': searchCategories, 'searchterm':search_term, 'all_category':all_category, 'all_location': all_location})
+  else:
+    return redirect('home')
   
