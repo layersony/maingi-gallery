@@ -30,6 +30,7 @@ class Category(models.Model):
   @classmethod
   def updateCategory(cls, id, cateUpdate):
     cls.objects.filter(id=id).update(category=cateUpdate)
+
   def __str__(self):
     return self.category
 
@@ -44,8 +45,9 @@ class Image(models.Model):
   def save_image(self):
     self.save()
 
-  def delete_image(self):
-    self.delete()
+  @classmethod
+  def delete_image(cls, id):
+    cls.objects.filter(id=id).delete()
 
   @classmethod
   def update_image(cls, id, imagechange):
