@@ -49,13 +49,23 @@ body{
 }
 .cate li{
   display: inline;
-  /* background-color: green; */
   padding: 7px;
   border-radius:15px;
-  /* width: 20px; */
 }
 
+.cate a{
+  background-color: black;
+  color: white;
+  padding: 6px;
+  border-radius: 15px;
+  min-width: 40px;
+  text-decoration: none;
+}
 
+.cate a:hover{
+  background-color: white;
+  color: black;
+}
 /****************
 ** search from **
 ****************/
@@ -265,6 +275,10 @@ footer>.footer_info p{
   }
   .custnav{
     min-height: 150px;
+  }
+  .cate a{
+    padding: 5px;
+    margin: -3px;
   }
   
 }

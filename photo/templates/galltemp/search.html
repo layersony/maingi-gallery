@@ -5,10 +5,13 @@
 
 <ul class='cate text-md-center'>
   <span>Categories:</span>
-
+  {% if all_category %}
   {% for cate in all_category %}
-  <li>{{ cate.category }}</li>
+  <li><a href="/search/?search={{ cate.category }}">{{ cate.category }}</a></li>
   {% endfor %}
+  {% else %}
+    <p>No Categories at the Moments</p>
+  {% endif %}
 </ul>
 
 <hr>
@@ -42,7 +45,7 @@
         </div>
         <p>{{ photo.image_desc }}</p>
         <div >
-          <input type="text" value='{{ photo.image.url }}' class="copylink" id="trial{{photo.id}}" style="display: none;">
+          <input type="text" value='https://maingigallery.herokuapp.com{{ photo.image.url }}' class="copylink" id="trial{{photo.id}}" style="display: none;">
           <span class="btncopy" id="cpybtn{{ photo.id }}">Copy Image Link <i class="fad fa-copy text-white copyicon" style="font-size: 25px;"></i></span>
         </div>
       </div>
