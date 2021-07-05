@@ -3,6 +3,18 @@
   font-family: Ubuntu;
   font-size: 20;
 }
+*::-webkit-scrollbar{
+  width: 5px;
+  height: 8px;
+  background-color: #aaa;
+  border-radius: 10px;
+
+}
+
+*::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius:20px;
+}
 html, body{
   min-height:100vh;
 }
