@@ -74,7 +74,7 @@ Open the application on your browser `127.0.0.1:8000`.
   
   
 ## Bugs  
-* None currently By If find any Make Changes or Contact Me I don't Bite 
+* The Site takes a while to load due to the size of the photos
   
 ## Contact Details
 sammaingi5@gmail.com
